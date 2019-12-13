@@ -3,7 +3,10 @@
 // (later you will learn about req.body to pass any type)
 
 const value = (pokeArray, value) => {
-  let expectedArray=[];
+  if (value === "null") {
+    value = JSON.parse(value);
+  }
+  let expectedArray = [];
   let result = pokeArray.filter(
     item =>
       Object.values(item).includes(value) ||
@@ -24,4 +27,3 @@ const value = (pokeArray, value) => {
 };
 
 module.exports = value;
-
